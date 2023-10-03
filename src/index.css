@@ -2,15 +2,38 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
 
 html {
   background-color: #2F2E41;
 }
 
-body {
-  width: 95%;
-  max-width: 1440px;
-  margin: 1rem auto;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
+.loader {
+  width: 83px;
+  height: 83px;
+  border: 5px solid #999;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
