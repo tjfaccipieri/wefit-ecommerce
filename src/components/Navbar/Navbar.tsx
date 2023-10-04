@@ -6,7 +6,6 @@ import { useStore } from "../../context/StoreContext"
 
 function Navbar() {
   const {cartItems} = useStore()
-  // console.log(cartItems);
 
   const number = cartItems.length
 

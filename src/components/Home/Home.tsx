@@ -1,17 +1,15 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Film } from '../../App';
+import { useStore } from '../../context/StoreContext';
 import Button from '../Utils/Button';
 import Card from '../Utils/Card';
 import CardList from '../Utils/CardList';
 import Container from '../Utils/Container';
 import shoppingCart from '/shoppingCart.png';
-import { Film } from '../../App';
-import { useStore } from '../../context/StoreContext';
-
-
 
 function Home() {
-  const {increaseQuant, cartItems} = useStore()
+  const { increaseQuant, cartItems } = useStore();
   const [films, setFilms] = useState([]);
 
   async function getData() {
@@ -29,8 +27,6 @@ function Home() {
   }, []);
 
 
-  console.log(cartItems.filter(prod => prod.id));
-
   return (
     <Container>
       {films.length === 0 ? (
@@ -47,26 +43,25 @@ function Home() {
                   currency: 'BRL',
                 })}
               </h2>
-              <Button onClick={() => increaseQuant(item.id)}>
-                {cartItems.find(prod => prod.id === item.id) == null ?
-                (
+              {cartItems.find((prod) => prod.id === item.id) == null ? (
+                <Button onClick={() => increaseQuant(item.id)}>
                   <>
                     <span>
-                    <img src={shoppingCart} alt="" /> 0
-                  </span>
-                  <p>Adicionar ao carrinho</p>
+                      <img src={shoppingCart} alt="" /> 0
+                    </span>
+                    <p>Adicionar ao carrinho</p>
                   </>
-                )
-                : (
+                </Button>
+              ) : (
+                <Button active={true} disabled>
                   <>
-                  <span>
-                  <img src={shoppingCart} alt="" /> 1
-                </span>
-                <p>Item adicionado</p>
-                </>
-                )}
-                
-              </Button>
+                    <span>
+                      <img src={shoppingCart} alt="" /> 1
+                    </span>
+                    <p>Item adicionado</p>
+                  </>
+                </Button>
+              )}
             </Card>
           ))}
         </CardList>

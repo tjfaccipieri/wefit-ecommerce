@@ -7,19 +7,15 @@ import Button from '../Utils/Button';
 import EmptyCartContainer, { CartContainer } from '../Utils/CartContainer';
 import Container from '../Utils/Container';
 import emptyCart from '/emptyCart.png';
-import plusIcon from '/plusIcon.png';
 import minusIcon from '/minusIcon.png';
+import plusIcon from '/plusIcon.png';
 import trash from '/trash.png';
 
 function Cart() {
-  const { cartItems, decreaseQuant, increaseQuant, removeItem } = useStore();
+  const { cartItems, decreaseQuant, increaseQuant, removeItem, checkout } =
+    useStore();
 
   const [films, setFilms] = useState<Film[]>([]);
-
-  // const selectedIds = cartItems.map((item) => item.id);
-  // const selectedItems: Film[] = films.filter((item) =>
-  //   selectedIds.includes(item.id)
-  // );
 
   const selectedItemsMap = {};
   cartItems.forEach((item) => {
@@ -47,11 +43,7 @@ function Cart() {
     getData();
   }, []);
 
-  useEffect(() => {
-    // getItens()
-  }, []);
-
-  let total: number = 0
+  let total: number = 0;
 
   return (
     <Container>
@@ -68,31 +60,118 @@ function Cart() {
       ) : (
         <>
           <CartContainer>
-            {itemsToShow.map((item) => (
-              <div>
+            <div className="cartMenu">
+              <p>Produto</p>
+              <p>Qtd</p>
+              <p>Subtotal</p>
+            </div>
+            {/* {itemsToShow.map((item) => (
+              <div className='itemList'>
                 <img src={item.image} alt="" />
-                <p className='title'>{item.title}</p>
-                <div className="quantity">
-                  <img src={minusIcon} alt="" onClick={() => decreaseQuant(item.id)} />
-                  <span>{item.quantity}</span>
-                  <img src={plusIcon} alt="" onClick={() => increaseQuant(item.id)} />
+                <div className="title">
+                  <p>{item.title}</p>
+                  <p>
+                    {item.price.toLocaleString('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL',
+                    })}
+                  </p>
                 </div>
-                <p className="price">{(item.price * item.quantity).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</p>
-                <img className='trash' src={trash} onClick={() => removeItem(item.id)} />
+                <div className="quantity">
+                  <img
+                    src={minusIcon}
+                    alt=""
+                    onClick={() => decreaseQuant(item.id)}
+                  />
+                  <span>{item.quantity}</span>
+                  <img
+                    src={plusIcon}
+                    alt=""
+                    onClick={() => increaseQuant(item.id)}
+                  />
+                </div>
+                <p className="price">
+                  {(item.price * item.quantity).toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
+                  })}
+                </p>
+                <img
+                  className="trash"
+                  src={trash}
+                  onClick={() => removeItem(item.id)}
+                />
               </div>
+            ))} */}
+
+            {itemsToShow.map(item => (
+              <>
+              <div className="parent">
+              <div className="div1"><img src={item.image} alt="" /> </div>
+              <div className="div2"><div className="title">
+                  <p>{item.title}</p>
+                  <p>
+                    {item.price.toLocaleString('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL',
+                    })}
+                  </p>
+                </div> </div>
+              <div className="div3">
+                  <img
+                    src={minusIcon}
+                    alt=""
+                    onClick={() => decreaseQuant(item.id)}
+                  />
+                  <span>{item.quantity}</span>
+                  <img
+                    src={plusIcon}
+                    alt=""
+                    onClick={() => increaseQuant(item.id)}
+                  />
+                </div>
+              <div className="div4"> 
+              <p className='priceText'>Subtotal</p>
+              <p className="price">
+                  {(item.price * item.quantity).toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
+                  })}
+                </p> </div>
+              <div className="div5"> <img
+                  className="trash"
+                  src={trash}
+                  onClick={() => removeItem(item.id)}
+                /> </div>
+              </div>
+              </>
+              
             ))}
 
-            <hr style={{width: '100%'}} />
 
-            <Button>Finalizar compra</Button>
-            <div>
-              Valor total: {itemsToShow.map(item => {
-                {total = total + (item.price * item.quantity)}
-                return <></>
-              })}
-              {total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
+            <hr style={{ width: '100%' }} />
+            <div className="total">
+              <Link to="/checkout">
+                <Button onClick={() => checkout()}>
+                  <p>Finalizar pedido</p>
+                </Button>
+              </Link>
+              <div className="valor">
+                Total{' '}
+                {itemsToShow.map((item) => {
+                  {
+                    total = total + item.price * item.quantity;
+                  }
+                  return <></>;
+                })}
+                <strong>
+                  {total.toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
+                  })}
+                </strong>
+              </div>
             </div>
-
           </CartContainer>
         </>
       )}

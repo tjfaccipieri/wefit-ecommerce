@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 interface ButtonProps {
-  width?: number
+  width?: number,
+  active?: boolean
 }
 
 const Button = styled.button<ButtonProps>`
   display: flex;
   border: none;
-  background-color: #009EDD;
+  background-color: ${props => (props.active === true ? '#039B00' : '#009EDD')};
   height: 40px;
   width: ${props => (props.width ? `${props.width}px` : '100%')};
   border-radius: 4px;
@@ -17,10 +18,6 @@ const Button = styled.button<ButtonProps>`
   gap: 8px;
   font-size: 12px;
   cursor: pointer;
-
-  &:hover {
-    background-color: #039B00;
-  }
 
   span {
     display: flex;

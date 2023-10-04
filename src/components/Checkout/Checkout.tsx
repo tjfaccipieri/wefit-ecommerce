@@ -9,7 +9,7 @@ function Checkout() {
     <Container>
       <CartContainer>
         <h2>Compra realizada com sucesso!</h2>
-        <img src={checkout} alt="" />
+        <img src={checkout} alt="" style={{width: '90%'}} />
         <Link to='/'>
           <Button width={180}><p>Voltar</p></Button>
         </Link>

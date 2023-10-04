@@ -6,17 +6,15 @@ interface StoreProviderProps {
 
 interface StoreContextProps {
   // getQuant: (id: number) => number,
-  cartItems: Array<any>
+  cartItems: Array<CartItem>
   increaseQuant: (id: number) => void
   decreaseQuant: (id: number) => void
   removeItem: (id: number) => void
+  checkout: () => void
 }
 
 interface CartItem {
   id: number,
-  // title: string,
-  // price:number,
-  // image: string,
   qtd: number
 }
 
@@ -32,7 +30,6 @@ export function StoreProvider({children}: StoreProviderProps) {
 
   function increaseQuant(id: number) {
     setCartItems(currItems => {
-      console.log('clicou');
       if (currItems.find(item => item.id === id) == null) {
         return [...currItems, {id, qtd: 1}]
       } else {
@@ -69,8 +66,12 @@ export function StoreProvider({children}: StoreProviderProps) {
     })
   }
 
+  function checkout() {
+    setCartItems([])
+  }
+
   return(
-    <StoreContext.Provider value={{ increaseQuant, decreaseQuant, removeItem, cartItems}}>
+    <StoreContext.Provider value={{ increaseQuant, decreaseQuant, removeItem, cartItems, checkout}}>
       {children}
     </StoreContext.Provider>
   )
