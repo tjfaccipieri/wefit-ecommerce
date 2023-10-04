@@ -12,11 +12,20 @@ export const CartContainer = styled(EmptyCartContainer)`
   }
 
   .cartMenu {
-    display: flex;
+    display: grid;
     width: 100%;
-    margin-left: 0;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 52px;
+    grid-row-gap: 0px;
     color: #999999;
-    font-size: 14px;
+
+    .productName { grid-area: 1 / 1 / 2 / 4; }
+
+    .productQtd { grid-area: 1 / 4 / 2 / 5; }
+    .productSubtotal { grid-area: 1 / 5 / 2 / 8; }
+  
+
 
     @media (max-width: 768px) {
       display: none;
@@ -110,6 +119,7 @@ export const CartContainer = styled(EmptyCartContainer)`
         margin-left: auto;
         .priceText {
           display: block;
+          color: #999999;
         }
       }
       .itemRemoveContainer {

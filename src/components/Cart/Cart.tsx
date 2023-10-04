@@ -61,14 +61,14 @@ function Cart() {
       ) : (
         <>
           <CartContainer>
-            <div className="cartMenu">
-              <p>Produto</p>
-              <p>Qtd</p>
-              <p>Subtotal</p>
-            </div>
+          <div className="cartMenu">
+          <div className="productName"><p>Produto</p> </div>
+          <div className="productQtd"><p>Qtd</p> </div>
+          <div className="productSubtotal"><p>Subtotal</p> </div>
+          </div>
             {itemsToShow.map((item) => (
-              <>
-                <div className="uniqueItemContainer">
+              
+                <div className="uniqueItemContainer" key={item.id}>
                   <div className="itemImageContainer">
                     <img src={item.image} alt="" />{' '}
                   </div>
@@ -111,7 +111,7 @@ function Cart() {
                     />{' '}
                   </div>
                 </div>
-              </>
+              
             ))}
             <hr style={{ width: '100%' }} />
             <div className="total">
