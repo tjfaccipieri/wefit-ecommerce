@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const CardList = styled.main`
   width: 100%;
@@ -9,6 +9,6 @@ const CardList = styled.main`
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
-`
+`;
 
-export default CardList
+export default CardList;

@@ -14,7 +14,6 @@ export interface Film {
 }
 
 function App() {
-
   return (
     <StoreProvider>
       <BrowserRouter>

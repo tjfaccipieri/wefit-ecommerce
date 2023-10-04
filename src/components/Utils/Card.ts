@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Card = styled.main`
   background-color: #fff;
   padding: 10px 11px;
   width: 95%;
-  margin:0 auto;
+  margin: 0 auto;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -19,11 +19,11 @@ const Card = styled.main`
     font-size: 12px;
     font-weight: 700;
   }
-  
+
   h2 {
     font-size: 16px;
     font-weight: 700;
   }
-`
+`;
 
-export default Card
+export default Card;

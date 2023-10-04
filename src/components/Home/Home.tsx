@@ -26,7 +26,6 @@ function Home() {
     getData();
   }, []);
 
-
   return (
     <Container>
       {films.length === 0 ? (

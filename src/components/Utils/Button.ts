@@ -1,16 +1,17 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface ButtonProps {
-  width?: number,
-  active?: boolean
+  width?: number;
+  active?: boolean;
 }
 
 const Button = styled.button<ButtonProps>`
   display: flex;
   border: none;
-  background-color: ${props => (props.active === true ? '#039B00' : '#009EDD')};
+  background-color: ${(props) =>
+    props.active === true ? '#039B00' : '#009EDD'};
   height: 40px;
-  width: ${props => (props.width ? `${props.width}px` : '100%')};
+  width: ${(props) => (props.width ? `${props.width}px` : '100%')};
   border-radius: 4px;
   color: #fff;
   justify-content: center;
@@ -29,6 +30,6 @@ const Button = styled.button<ButtonProps>`
     font-weight: 700;
     text-transform: uppercase;
   }
-`
+`;
 
-export default Button
+export default Button;
