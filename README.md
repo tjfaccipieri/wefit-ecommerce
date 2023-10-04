@@ -1,27 +1,54 @@
-# React + TypeScript + Vite
+# WeMovies
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Olá, seja bem vindo ao repositório do projeto WeMovies, que a força esteja com você durante essa visita.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Como testar?
 
-## Expanding the ESLint configuration
+Para testar o projeto localmente, será necessário ter o NodeJs instalado na maquina, e também clonar o projeto com o comando:
+`git clone https://github.com/tjfaccipieri/wefit-ecommerce`
+Após clonar o projeto, entre na pasta com: `cd wefit-ecommerce`, e digite o comando
+`npm install`, para configurar todas as dependências de execução deste projeto.
+Este projeto utiliza React com Vite, então para rodá-lo no navegador, você precisará executar um `npm run dev`, e acessar o `http://localhost:5173`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+A base de dados desse projeto consiste em um arquivo JSON, rodando com o json-server, mas o comando `npm run dev` já vai dar conta de rodar tanto o Front, como a base de dados ao mesmo tempo, na porta 3000. (Menos comandos pra rodar, e menos terminais abertos, uma maravilha do mundo moderno).
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+# Tecnologias/Bibliotecas utilizadas
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Esse projeto foi feito de acordo com os requisitos do teste técnico da WeFit, e utiliza:
+
+- React com Typescript
+- Vite
+- Styled-Components
+- Json-Server
+- Axios
+- React-Router-Dom
+- Concurrently
+
+---
+
+# 👤 Autor
+
+<a href="https://www.linkedin.com/in/thiago-faccipieri/">
+				<img
+					width="100px"
+					height="auto"
+					src="https://github.com/tjfaccipieri.png"
+					alt="Thiago Faccipieri"
+				/>
+				<br />
+				<sub>
+					<b>Thiago Faccipieri</b>
+				</sub>
+			</a>
+
+---
+
+# 📜 Licença
+
+Copyright :copyright: 2023 - Thiago Faccipieri/WeFit
+
+---
